@@ -16,14 +16,14 @@ import vn.payos.PayOS;
 @Configuration
 public class ThuchanhtonghopApplication implements WebMvcConfigurer {
 
-//    @Value("${PAYOS_CLIENT_ID}")
-//    private String clientId;
-//
-//    @Value("${PAYOS_API_KEY}")
-//    private String apiKey;
-//
-//    @Value("${PAYOS_CHECKSUM_KEY}")
-//    private String checksumKey;
+    @Value("${PAYOS_CLIENT_ID}")
+    private String clientId;
+
+    @Value("${PAYOS_API_KEY}")
+    private String apiKey;
+
+    @Value("${PAYOS_CHECKSUM_KEY}")
+    private String checksumKey;
 //
 //    @Override
 //    public void addCorsMappings(@NonNull CorsRegistry registry) {
@@ -36,10 +36,10 @@ public class ThuchanhtonghopApplication implements WebMvcConfigurer {
 //                .maxAge(3600); // Max age of the CORS pre-flight request
 //    }
 //
-//    @Bean
-//    public PayOS payOS() {
-//        return new PayOS(clientId, apiKey, checksumKey);
-//    }
+    @Bean
+    public PayOS payOS() {
+        return new PayOS(clientId, apiKey, checksumKey);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ThuchanhtonghopApplication.class, args);
