@@ -25,17 +25,17 @@ public class ThuchanhtonghopApplication implements WebMvcConfigurer {
     @Value("${PAYOS_CHECKSUM_KEY}")
     private String checksumKey;
 //
-//    @Override
-//    public void addCorsMappings(@NonNull CorsRegistry registry) {
-//        registry.addMapping("/**")
-//                .allowedOrigins("*")
-//                .allowedMethods("*")
-//                .allowedHeaders("*")
-//                .exposedHeaders("*")
-//                .allowCredentials(false)
-//                .maxAge(3600); // Max age of the CORS pre-flight request
-//    }
-//
+    @Override
+    public void addCorsMappings(@NonNull CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .exposedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600); // Max age of the CORS pre-flight request
+    }
+
     @Bean
     public PayOS payOS() {
         return new PayOS(clientId, apiKey, checksumKey);
