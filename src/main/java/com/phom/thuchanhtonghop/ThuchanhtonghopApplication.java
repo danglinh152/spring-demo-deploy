@@ -16,30 +16,30 @@ import vn.payos.PayOS;
 @Configuration
 public class ThuchanhtonghopApplication implements WebMvcConfigurer {
 
-    @Value("${PAYOS_CLIENT_ID}")
-    private String clientId;
-
-    @Value("${PAYOS_API_KEY}")
-    private String apiKey;
-
-    @Value("${PAYOS_CHECKSUM_KEY}")
-    private String checksumKey;
-
-    @Override
-    public void addCorsMappings(@NonNull CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .allowedHeaders("*")
-                .exposedHeaders("*")
-                .allowCredentials(false)
-                .maxAge(3600); // Max age of the CORS pre-flight request
-    }
-
-    @Bean
-    public PayOS payOS() {
-        return new PayOS(clientId, apiKey, checksumKey);
-    }
+//    @Value("${PAYOS_CLIENT_ID}")
+//    private String clientId;
+//
+//    @Value("${PAYOS_API_KEY}")
+//    private String apiKey;
+//
+//    @Value("${PAYOS_CHECKSUM_KEY}")
+//    private String checksumKey;
+//
+//    @Override
+//    public void addCorsMappings(@NonNull CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowedOrigins("*")
+//                .allowedMethods("*")
+//                .allowedHeaders("*")
+//                .exposedHeaders("*")
+//                .allowCredentials(false)
+//                .maxAge(3600); // Max age of the CORS pre-flight request
+//    }
+//
+//    @Bean
+//    public PayOS payOS() {
+//        return new PayOS(clientId, apiKey, checksumKey);
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(ThuchanhtonghopApplication.class, args);
