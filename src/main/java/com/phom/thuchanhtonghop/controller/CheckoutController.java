@@ -44,15 +44,10 @@ public class CheckoutController {
 //    @RequestMapping(method = RequestMethod.POST, value = "/create-payment-link", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<String> checkout(@RequestBody ProductData product) {
         try {
-//            final String productName = "Mì tôm hảo hảo ly"; //product name
-//            final String description = "Thanh toan don hang"; //product desc
-//            final String returnUrl = "http://localhost:3030/success";
-//            final String cancelUrl = "http://localhost:3030//cancel";
-//            final int price = 2000;
             // Gen order code
             String currentTimeString = String.valueOf(new Date().getTime());
             long orderCode = Long.parseLong(currentTimeString.substring(currentTimeString.length() - 6));
-            ItemData item = ItemData.builder().name("product.getProductName()").quantity(1).price(product.getPrice()).build();
+            ItemData item = ItemData.builder().name(product.getProductName()).quantity(1).price(product.getPrice()).build();
             PaymentData paymentData = PaymentData.builder().orderCode(orderCode).amount(product.getPrice()).description(product.getDescription())
                     .returnUrl(product.getReturnUrl()).cancelUrl(product.getCancelUrl()).item(item).build();
             CheckoutResponseData data = payOS.createPaymentLink(paymentData);
